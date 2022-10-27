@@ -2,9 +2,10 @@
 
 module Battle
   class Actor
-    attr_reader :name
+    attr_reader :id, :name
 
-    def initialize(name:)
+    def initialize(id:,name:)
+      @id = id
       @name = name
     end
   end

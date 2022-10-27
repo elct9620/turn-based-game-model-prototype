@@ -13,9 +13,9 @@ module Battle
     end
 
     def join(name)
-      actor = Actor.new(name: name)
+      actor = Actor.new(id: @actors.size, name: name)
       @actors << actor
-      @events << Events::JoinedEvent.new(name: name)
+      @events << Events::JoinedEvent.new(id: actor.id, name: name)
     end
   end
 end

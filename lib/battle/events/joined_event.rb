@@ -2,13 +2,14 @@
 
 module Battle
   module Events
-    # Actor Jointed
+    # Actor Joined
     #
     # @since 0.1.0
     class JoinedEvent
-      attr_reader :name
+      attr_reader :id, :name
 
-      def initialize(name:)
+      def initialize(id:, name:)
+        @id = id
         @name = name
       end
 
