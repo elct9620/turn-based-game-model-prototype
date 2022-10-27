@@ -10,8 +10,9 @@ module Battle
     end
 
     on Events::AttackEvent do |event|
+      source = @actors[event.from_id]
       target = @actors[event.to_id]
-      "#{target.name}受到 #{event.amount} 點傷害"
+      "#{source.name } 對 #{target.name} 造成 #{event.amount} 點傷害"
     end
 
     def initialize(battle)

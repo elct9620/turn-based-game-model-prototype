@@ -8,7 +8,7 @@ Feature: Attack
 
   Scenario: 蒼時 can attack 哥布林
     When "蒼時" attack "哥布林" with <amount> point
-    Then I can see "哥布林受到 <amount> 點傷害"
+    Then I can see "蒼時 對 哥布林 造成 <amount> 點傷害"
 
     Examples:
       | amount |
