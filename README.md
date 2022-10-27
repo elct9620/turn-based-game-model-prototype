@@ -1,6 +1,8 @@
 NewEra Battle Model Prototype
 ===
 
+[![Test](https://github.com/elct9620/turn-based-game-model-prototype/actions/workflows/test.yml/badge.svg)](https://github.com/elct9620/turn-based-game-model-prototype/actions/workflows/test.yml)
+
 A plain object battle model for NewEra
 
 ## Concept
