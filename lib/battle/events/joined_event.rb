@@ -6,10 +6,10 @@ module Battle
     #
     # @since 0.1.0
     class JoinedEvent < BaseEvent
-      attr_reader :id, :name
+      attr_reader :actor_id, :name
 
-      def initialize(id:, name:)
-        @id = id
+      def initialize(actor_id:, name:)
+        @actor_id = actor_id
         @name = name
       end
 

@@ -15,7 +15,18 @@ module Battle
     def join(name)
       actor = Actor.new(id: @actors.size, name: name)
       @actors << actor
-      @events << Events::JoinedEvent.new(id: actor.id, name: name)
+      event = Events::JoinedEvent.new(actor_id: actor.id, name: name)
+      @events << event
+      event
+    end
+
+    def attack(from_id:, to_id:)
+      event = Events::AttackEvent.new(
+        from: @actors[from_id],
+        to: @actors[to_id]
+      )
+      @events << event
+      event
     end
   end
 end
