@@ -1,15 +1,26 @@
-Battle Model
+NewEra Battle Model Prototype
 ===
 
 A plain object battle model for NewEra
 
 ## Concept
 
-### Battle
+### Battle Stage
 
 The `Aggregate Root` of a battle
 
-### Battle Events
+```ruby
+module Battle
+  class Stage
+    # ...
+    on Events::AttackEvent do |event|
+      # ...
+    end
+  end
+end
+```
+
+### Battle Event
 
 The events happened in a battle with the `version` to sort it
 
@@ -23,10 +34,6 @@ end
 
 # Latest Battle State
 ```
-
-### Battle Command
-
-To update the `Battle` state, we only accept the command
 
 ### Actor
 
