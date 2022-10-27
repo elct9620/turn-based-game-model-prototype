@@ -6,11 +6,10 @@ module Battle
 
     def initialize(battle)
       @battle = battle
-      @battle.io.rewind
     end
 
     def each(&block)
-      @battle.io.map(&:strip).each(&block)
+      @battle.events.lazy.map(&:to_s).each(&block)
     end
   end
 end
