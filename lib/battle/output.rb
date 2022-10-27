@@ -9,7 +9,7 @@ module Battle
       "#{event.name}加入戰鬥"
     end
 
-    on Events::AttackEvent do |event|
+    on Events::DamagedEvent do |event|
       source = @actors[event.from_id]
       target = @actors[event.to_id]
       "#{source.name } 對 #{target.name} 造成 #{event.amount} 點傷害"

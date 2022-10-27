@@ -15,7 +15,7 @@ module Battle
       actor
     end
 
-    on Events::AttackEvent do |event|
+    on Events::DamagedEvent do |event|
       actor = @actors[event.to_id]
       actor.damaged(event.amount)
     end

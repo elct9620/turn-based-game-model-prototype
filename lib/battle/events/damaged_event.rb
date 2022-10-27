@@ -2,7 +2,7 @@
 
 module Battle
   module Events
-    class AttackEvent
+    class DamagedEvent
       attr_reader :from_id, :to_id
 
       def initialize(from_id:, to_id:, amount:)
