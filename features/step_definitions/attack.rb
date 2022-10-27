@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-When('{string} attack {string}') do |attacker, defender|
+When('{string} attack {string} with {int} point') do |attacker, defender, amount|
   @battle.attack(
     from_id: @actor_ids[attacker],
-    to_id: @actor_ids[defender]
+    to_id: @actor_ids[defender],
+    amount: amount
   )
 end

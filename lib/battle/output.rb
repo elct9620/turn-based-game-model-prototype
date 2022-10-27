@@ -11,7 +11,7 @@ module Battle
 
     on Events::AttackEvent do |event|
       target = @actors[event.to_id]
-      "#{target.name}受到 10 點傷害"
+      "#{target.name}受到 #{event.amount} 點傷害"
     end
 
     def initialize(battle)

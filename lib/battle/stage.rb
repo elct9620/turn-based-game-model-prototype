@@ -30,10 +30,11 @@ module Battle
       apply event
     end
 
-    def attack(from_id:, to_id:)
+    def attack(from_id:, to_id:, amount:)
       event = Events::AttackEvent.new(
         from_id: from_id,
-        to_id: to_id
+        to_id: to_id,
+        amount: amount
       )
       @events << event
       apply event
