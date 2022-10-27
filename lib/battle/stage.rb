@@ -10,12 +10,14 @@ module Battle
     attr_reader :actors
 
     on Events::JoinedEvent do |event|
-      actor = Actor.new(id: event.actor_id, name: event.name)
+      actor = Actor.new(id: event.actor_id, name: event.name, hp: event.hp)
       @actors << actor
       actor
     end
 
     on Events::AttackEvent do |event|
+      actor = @actors[event.to_id]
+      actor.damaged(event.amount)
     end
 
     def initialize(io)

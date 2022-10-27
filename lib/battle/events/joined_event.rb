@@ -6,11 +6,12 @@ module Battle
     #
     # @since 0.1.0
     class JoinedEvent
-      attr_reader :actor_id, :name
+      attr_reader :actor_id, :name, :hp
 
-      def initialize(actor_id:, name:)
+      def initialize(actor_id:, name:, hp:)
         @actor_id = actor_id
         @name = name
+        @hp = HealthPoint.new(hp)
       end
     end
   end
