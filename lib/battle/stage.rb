@@ -20,8 +20,18 @@ module Battle
       actor.damaged(event.amount)
     end
 
+    on Events::DefeatedEvent do |event|
+      @finished = true
+      freeze
+    end
+
     def initialize(io)
       @actors = []
+      @finished = false
+    end
+
+    def finished?
+      @finished == true
     end
   end
 end

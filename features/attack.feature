@@ -14,3 +14,8 @@ Feature: Attack
       | amount |
       | 10     |
       | 20     |
+
+  Scenario: 哥布林 can be defeated
+    When "蒼時" attack "哥布林" with 100 point
+    Then I can see "哥布林 被擊敗"
+    And the battle is finished

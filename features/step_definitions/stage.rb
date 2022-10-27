@@ -8,3 +8,7 @@ end
 Then('I can see {string}') do |message|
   expect(Battle::Output.new(@battle)).to include(message)
 end
+
+Then('the battle is finished') do
+  expect(@battle).to be_finished
+end

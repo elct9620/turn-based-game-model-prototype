@@ -15,6 +15,11 @@ module Battle
       "#{source.name } 對 #{target.name} 造成 #{event.amount} 點傷害"
     end
 
+    on Events::DefeatedEvent do |event|
+      target = @actors[event.actor_id]
+      "#{target.name } 被擊敗"
+    end
+
     def initialize(battle)
       @battle = battle
     end
