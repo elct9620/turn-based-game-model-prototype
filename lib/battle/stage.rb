@@ -15,6 +15,10 @@ module Battle
       actor
     end
 
+    on Events::AttackEvent do |event|
+
+    end
+
     def initialize(io)
       @events = []
       @actors = []
@@ -28,11 +32,11 @@ module Battle
 
     def attack(from_id:, to_id:)
       event = Events::AttackEvent.new(
-        from: @actors[from_id],
-        to: @actors[to_id]
+        from_id: from_id,
+        to_id: to_id
       )
       @events << event
-      event
+      apply event
     end
   end
 end

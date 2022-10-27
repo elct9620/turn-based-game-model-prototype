@@ -2,14 +2,12 @@
 
 module Battle
   module Events
-    class AttackEvent < BaseEvent
-      def initialize(from:, to:)
-        @from = from
-        @to = to
-      end
+    class AttackEvent
+      attr_reader :from_id, :to_id
 
-      def to_s
-        "#{@to.name}受到 10 點傷害"
+      def initialize(from_id:, to_id:)
+        @from_id = from_id
+        @to_id = to_id
       end
     end
   end
