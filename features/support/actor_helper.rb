@@ -3,7 +3,10 @@
 module ActorTestHelper
   def join_actor(name)
     @actor_ids ||= {}
-    event = @battle.join(name)
+    event = @battle.apply Battle::Events::JoinedEvent.new(
+      actor_id: @battle.actors.size,
+      name: name
+    )
     @actor_ids[name] = event.id
   end
 end
