@@ -6,11 +6,14 @@ module Battle
   # @since 0.1.0
   class Stage
     def initialize(io)
+      @actors = []
       @io = io
     end
 
     def join(name)
-      @io.puts "#{name}加入戰鬥"
+      actor = Actor.new(name: name)
+      @actors << actor
+      @io.puts "#{actor.name}加入戰鬥"
     end
   end
 end
