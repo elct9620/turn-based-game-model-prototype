@@ -1,8 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (7.0.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
     attr_extras (6.2.5)
     builder (3.2.4)
+    concurrent-ruby (1.1.10)
     cucumber (8.0.0)
       builder (~> 3.2, >= 3.2.4)
       cucumber-ci-environment (~> 9.0, >= 9.0.4)
@@ -30,9 +36,12 @@ GEM
     diff-lcs (1.5.0)
     docile (1.4.0)
     ffi (1.15.5)
+    i18n (1.12.0)
+      concurrent-ruby (~> 1.0)
     mime-types (3.4.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
+    minitest (5.16.3)
     multi_test (1.1.0)
     optimist (3.0.1)
     patience_diff (1.2.0)
@@ -62,12 +71,15 @@ GEM
       patience_diff
     sys-uname (1.2.2)
       ffi (~> 1.1)
+    tzinfo (2.0.5)
+      concurrent-ruby (~> 1.0)
     zeitwerk (2.6.1)
 
 PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  activesupport
   cucumber (~> 8.0)
   rspec (~> 3.12)
   simplecov
