@@ -5,7 +5,7 @@ module Battle
     # Actor Joined
     #
     # @since 0.1.0
-    class JoinedEvent
+    class JoinedEvent < BaseEvent
       attr_reader :id, :name
 
       def initialize(id:, name:)
