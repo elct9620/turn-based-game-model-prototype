@@ -6,8 +6,9 @@ source "https://rubygems.org"
 
 gem "zeitwerk", "~> 2.6"
 
-group :development do
+group :test do
   gem "cucumber", "~> 8.0"
   gem "rspec", "~> 3.12"
+  gem 'simplecov', require: false
   gem "super_diff"
 end
