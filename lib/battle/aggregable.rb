@@ -4,11 +4,8 @@ module Battle
   module Aggregable
     extend ActiveSupport::Concern
 
-    def apply(event, target: self)
-      aggregator = self.class.aggregators[event.class]
-      raise NotImplementedError, "#{self.class} not handle #{event.class}" if aggregator.nil?
-
-      target.instance_exec(event, &aggregator)
+    included do
+      attr_reader :events
     end
 
     class_methods do
@@ -20,6 +17,15 @@ module Battle
         @aggregators ||= {}
         @aggregators[event] = block
       end
+    end
+
+    def apply(event, target: self)
+      aggregator = self.class.aggregators[event.class]
+      raise NotImplementedError, "#{self.class} not handle #{event.class}" if aggregator.nil?
+
+      @events ||= []
+      @events << event
+      target.instance_exec(event, &aggregator)
     end
   end
 end

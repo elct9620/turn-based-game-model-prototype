@@ -7,8 +7,6 @@ module Battle
   class Stage
     include Aggregable
 
-    attr_reader :events
-
     on Events::JoinedEvent do |event|
       actor = Actor.new(id: event.actor_id, name: event.name)
       @actors << actor
@@ -16,28 +14,22 @@ module Battle
     end
 
     on Events::AttackEvent do |event|
-
     end
 
     def initialize(io)
-      @events = []
       @actors = []
     end
 
     def join(name)
-      event = Events::JoinedEvent.new(actor_id: @actors.size, name: name)
-      @events << event
-      apply event
+      apply Events::JoinedEvent.new(actor_id: @actors.size, name: name)
     end
 
     def attack(from_id:, to_id:, amount:)
-      event = Events::AttackEvent.new(
+      apply Events::AttackEvent.new(
         from_id: from_id,
         to_id: to_id,
         amount: amount
       )
-      @events << event
-      apply event
     end
   end
 end
