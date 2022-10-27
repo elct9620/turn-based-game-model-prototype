@@ -10,5 +10,5 @@ When('an actor {string} joined') do |name|
 end
 
 Then('I can see {string}') do |message|
-  expect(@io.string).to include(message)
+  expect(Battle::Output.new(@battle)).to include(message)
 end

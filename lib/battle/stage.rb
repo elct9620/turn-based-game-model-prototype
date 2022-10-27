@@ -5,6 +5,8 @@ module Battle
   #
   # @since 0.1.0
   class Stage
+    attr_reader :io
+
     def initialize(io)
       @actors = []
       @io = io
