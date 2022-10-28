@@ -33,6 +33,7 @@ module Console
       CLI::UI::Frame.open('行動') do
         CLI::UI::Prompt.ask('要進行什麼行動') do |handler|
           handler.option('攻擊')  { |_selection| do_attack }
+          handler.option('逃跑')  { |_selection| do_escape }
           handler.option('離開')  { |_selection| @battle.exit }
         end
         flush
@@ -44,6 +45,13 @@ module Console
       context.attack(by: 0, target: 1, amount: rand(0..50))
       context.attack(by: 1, target: 0, amount: rand(0..25))
       context.settlement
+    end
+
+    def do_escape
+      context = Battle::Contexts::EscapeContext.new(@battle)
+      return unless context.successful?
+
+      context.escape_by(actor: 0)
     end
   end
 end
