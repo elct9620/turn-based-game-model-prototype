@@ -6,6 +6,7 @@ on:
 
 env:
   RUBY_VERSION: '2.7.6'
+  CUCUMBER_PUBLISH_TOKEN: ${{ secrets.CUCUMBER_PUBLISH_TOKEN }}
 
 jobs:
   rubocop:
