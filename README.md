@@ -63,3 +63,15 @@ end
 ### Actor
 
 The primary role in the battle is to make interactions.
+
+### HealthPoint
+
+The health value of the actor, if equal to zero means dead.
+
+### SuccessRate
+
+The rate of success. eg. 50% can escape successful
+
+* The result will be fixed after created
+* Can be incremented by `rate + rate`
+* Can get a new result by `rate.next`
