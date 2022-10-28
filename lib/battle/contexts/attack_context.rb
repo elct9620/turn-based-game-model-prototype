@@ -16,7 +16,7 @@ module Battle
       end
 
       def settlement
-        defeated_actor = @battle.actors.find { |actor| actor.hp == 0 }
+        defeated_actor = @battle.actors.find { |actor| actor.hp.zero? }
         return unless defeated_actor
 
         @battle.apply Battle::Events::DefeatedEvent.new(

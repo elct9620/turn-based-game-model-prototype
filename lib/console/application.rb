@@ -10,7 +10,7 @@ module Console
     def start
       join
       CLI::UI::Frame.open('系統') do
-        puts "戰鬥開始了⋯⋯"
+        puts '戰鬥開始了⋯⋯'
         flush
       end
       user_action until @battle.finished?
@@ -36,8 +36,8 @@ module Console
     def user_action
       CLI::UI::Frame.open('行動') do
         CLI::UI::Prompt.ask('要進行什麼行動') do |handler|
-          handler.option('攻擊')  { |selection| do_attack }
-          handler.option('離開')  { |selection| @battle.exit }
+          handler.option('攻擊')  { |_selection| do_attack }
+          handler.option('離開')  { |_selection| @battle.exit }
         end
         flush
       end

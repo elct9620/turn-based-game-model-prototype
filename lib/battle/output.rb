@@ -17,7 +17,7 @@ module Battle
 
     on Events::DefeatedEvent do |event|
       target = @battle.actors[event.actor_id]
-      "#{target.name } 被擊敗"
+      "#{target.name} 被擊敗"
     end
 
     def initialize(battle)

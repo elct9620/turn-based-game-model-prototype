@@ -20,7 +20,7 @@ module Battle
       actor.damaged(event.amount)
     end
 
-    on Events::DefeatedEvent do |event|
+    on Events::DefeatedEvent do |_event|
       @finished = true
       freeze
     end

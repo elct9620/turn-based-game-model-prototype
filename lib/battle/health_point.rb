@@ -5,7 +5,7 @@ module Battle
   #
   # @since 0.1.0
   class HealthPoint < Numeric
-    VALID_RANGE = (0..9999)
+    VALID_RANGE = (0..9999).freeze
 
     def initialize(value)
       @value = value.to_i

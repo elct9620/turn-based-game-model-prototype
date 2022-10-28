@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'zeitwerk'
-require "active_support/concern"
+require 'active_support/concern'
 
 loader = Zeitwerk::Loader.new
 loader.push_dir(__dir__)
