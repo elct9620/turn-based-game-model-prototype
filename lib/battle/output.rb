@@ -22,12 +22,26 @@ module Battle
 
     def initialize(battle)
       @battle = battle
+      @cursor = -1
     end
 
     def each(&block)
       @battle.events.lazy.map do |event|
         apply event
       end.each(&block)
+    end
+
+    def rewind
+      @cursor = -1
+    end
+
+    def next
+      @cursor += 1
+      apply @battle.events[@cursor]
+    end
+
+    def next?
+      @battle.events[@cursor.next] != nil
     end
   end
 end

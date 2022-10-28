@@ -5,15 +5,19 @@ module Console
     def initialize
       @battle = Battle::Stage.new
       @output = Battle::Output.new(@battle)
-      @buffer = @output.to_enum
     end
 
     def start
       join
       CLI::UI::Frame.open('系統') do
         puts "戰鬥開始了⋯⋯"
+        flush
       end
       user_action until @battle.finished?
+    end
+
+    def flush
+      puts @output.next while @output.next?
     end
 
     def join
@@ -22,12 +26,10 @@ module Console
         @battle.apply Battle::Events::JoinedEvent.new(
           actor_id: 0, name: name, hp: 100
         )
-        puts @buffer.next
 
         @battle.apply Battle::Events::JoinedEvent.new(
           actor_id: 1, name: '哥布林', hp: 100
         )
-        puts @buffer.next
       end
     end
 
@@ -37,6 +39,7 @@ module Console
           handler.option('攻擊')  { |selection| do_attack }
           handler.option('離開')  { |selection| @battle.exit }
         end
+        flush
       end
     end
 
@@ -46,7 +49,7 @@ module Console
         to_id: 1,
         amount: 10
       )
-      puts @buffer.next
+      true
     end
   end
 end
