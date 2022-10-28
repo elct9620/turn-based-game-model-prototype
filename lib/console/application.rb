@@ -3,7 +3,7 @@
 module Console
   class Application
     def initialize
-      @battle = Battle::Stage.new
+      @battle = Battle::View.new
       @output = Battle::Output.new(@battle)
     end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Given('there have a battle') do
-  @battle = Battle::Stage.new
+  @battle = Battle::View.new
 end
 
 Then('I can see {string}') do |message|

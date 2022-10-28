@@ -4,7 +4,7 @@ module Battle
   # The aggregate root of battle
   #
   # @since 0.1.0
-  class Stage
+  class View
     include Aggregable
 
     attr_reader :actors
