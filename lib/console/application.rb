@@ -23,13 +23,9 @@ module Console
     def join
       CLI::UI::Frame.open('系統') do
         name = CLI::UI.ask('挑戰者，你的名字是？')
-        @battle.apply Battle::Events::JoinedEvent.new(
-          actor_id: 0, name: name, hp: 100
-        )
-
-        @battle.apply Battle::Events::JoinedEvent.new(
-          actor_id: 1, name: '哥布林', hp: 100
-        )
+        context = Battle::Contexts::PrepareContext.new(@battle)
+        context.add_actor(id: 0, name: name, hp: 100)
+        context.add_actor(id: 1, name: '哥布林', hp: 100)
       end
     end
 
