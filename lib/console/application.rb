@@ -44,12 +44,13 @@ module Console
     end
 
     def do_attack
-      @battle.apply Battle::Events::DamagedEvent.new(
-        from_id: 0,
-        to_id: 1,
+      context = Battle::Contexts::AttackContext.new(@battle)
+      context.attack(
+        by: 0,
+        target: 1,
         amount: 10
       )
-      true
+      context.settlement
     end
   end
 end
