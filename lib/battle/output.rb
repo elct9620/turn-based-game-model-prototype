@@ -10,13 +10,13 @@ module Battle
     end
 
     on Events::DamagedEvent do |event|
-      source = @actors[event.from_id]
-      target = @actors[event.to_id]
-      "#{source.name } 對 #{target.name} 造成 #{event.amount} 點傷害"
+      source = @battle.actors[event.from_id]
+      target = @battle.actors[event.to_id]
+      "#{source.name} 對 #{target.name} 造成 #{event.amount} 點傷害"
     end
 
     on Events::DefeatedEvent do |event|
-      target = @actors[event.actor_id]
+      target = @battle.actors[event.actor_id]
       "#{target.name } 被擊敗"
     end
 
@@ -26,7 +26,7 @@ module Battle
 
     def each(&block)
       @battle.events.lazy.map do |event|
-        apply event, target: @battle
+        apply event
       end.each(&block)
     end
   end
