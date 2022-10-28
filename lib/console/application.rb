@@ -49,9 +49,7 @@ module Console
 
     def do_escape
       context = Battle::Contexts::EscapeContext.new(@battle)
-      return unless context.successful?
-
-      context.escape_by(actor: 0)
+      context.escape_by(actor: 0, rate: Battle::SuccessRate.new(50))
     end
   end
 end

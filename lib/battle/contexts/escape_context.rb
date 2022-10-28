@@ -7,14 +7,12 @@ module Battle
         @battle = battle
       end
 
-      def escape_by(actor:)
+      def escape_by(actor:, rate:)
+        return unless rate.successful?
+
         @battle.apply Events::EscapedEvent.new(
           actor_id: actor
         )
-      end
-
-      def successful?
-        rand(1..100) > 50
       end
     end
   end

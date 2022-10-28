@@ -10,5 +10,5 @@ When('{string} attack {string} with {int} point') do |attacker, defender, amount
 end
 
 When('{string} escaped') do |actor|
-  escape_context.escape_by(actor: @actor_ids[actor])
+  escape_context.escape_by(actor: @actor_ids[actor], rate: Battle::SuccessRate.new(100))
 end
