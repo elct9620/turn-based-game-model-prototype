@@ -2,6 +2,7 @@ Turn-based Game Model Prototype
 ===
 
 [![Test](https://github.com/elct9620/turn-based-game-model-prototype/actions/workflows/test.yml/badge.svg)](https://github.com/elct9620/turn-based-game-model-prototype/actions/workflows/test.yml)
+[![CucumberReports: Trun-based Game Model Prototype](https://messages.cucumber.io/api/report-collections/027a493e-c5f2-4ba7-b35b-de5fd9383648/badge)](https://reports.cucumber.io/report-collections/027a493e-c5f2-4ba7-b35b-de5fd9383648)
 
 This is designed for the [BasalticStudio/NewEra](https://github.com/BasalticStudio/new-era) battle system to provide a flexible and replayable implementation.
 
