@@ -15,6 +15,11 @@ module Battle
       "#{source.name} 對 #{target.name} 造成 #{event.amount} 點傷害"
     end
 
+    on Events::EscapedEvent do |event|
+      target = @battle.actors[event.actor_id]
+      "#{target.name} 順利逃跑了！"
+    end
+
     on Events::DefeatedEvent do |event|
       target = @battle.actors[event.actor_id]
       "#{target.name} 被擊敗"

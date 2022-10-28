@@ -20,9 +20,12 @@ module Battle
       actor.damaged(event.amount)
     end
 
+    on Events::EscapedEvent do |_event|
+      self.exit
+    end
+
     on Events::DefeatedEvent do |_event|
-      @finished = true
-      freeze
+      self.exit
     end
 
     def initialize
@@ -32,6 +35,7 @@ module Battle
 
     def exit
       @finished = true
+      freeze
     end
 
     def finished?
