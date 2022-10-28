@@ -1,4 +1,4 @@
-run = "./bin/newera"
+run = "bundle exec ./bin/newera"
 hidden = [".bundle"]
 
 [packager]
