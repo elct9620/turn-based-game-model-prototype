@@ -45,16 +45,8 @@ module Console
 
     def do_attack
       context = Battle::Contexts::AttackContext.new(@battle)
-      context.attack(
-        by: 0,
-        target: 1,
-        amount: rand(0..50)
-      )
-      context.attack(
-        by: 1,
-        target: 0,
-        amount: rand(0..25)
-      )
+      context.attack(by: 0, target: 1, amount: rand(0..50))
+      context.attack(by: 1, target: 0, amount: rand(0..25))
       context.settlement
     end
   end

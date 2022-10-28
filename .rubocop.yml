@@ -1,0 +1,13 @@
+AllCops:
+  NewCops: enable
+  DisplayCopNames: true
+  SuggestExtensions: false
+
+Style/Documentation:
+  Enabled: false
+
+Naming/MethodParameterName:
+  AllowedNames:
+    - id
+    - hp
+    - by

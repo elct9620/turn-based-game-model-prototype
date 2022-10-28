@@ -8,6 +8,7 @@ module Battle
     VALID_RANGE = (0..9999).freeze
 
     def initialize(value)
+      super()
       @value = value.to_i
     end
 
