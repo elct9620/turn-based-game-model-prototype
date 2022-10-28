@@ -5,13 +5,13 @@ module Battle
   #
   # @since 0.1.0
   class HealthPoint < Numeric
-    attr_reader :value
-
     def initialize(value)
       @value = value.to_i
     end
 
-    alias to_i value
+    def to_i
+      @value
+    end
 
     def <=>(other)
       to_i <=> other.to_i

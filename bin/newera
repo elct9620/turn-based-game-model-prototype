@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/console'
+
+CLI::UI::StdoutRouter.enable
+app = Console::Application.new
+app.start

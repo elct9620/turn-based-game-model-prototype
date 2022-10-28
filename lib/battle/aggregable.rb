@@ -5,7 +5,9 @@ module Battle
     extend ActiveSupport::Concern
 
     included do
-      attr_reader :events
+      def events
+        @events ||= []
+      end
     end
 
     class_methods do
@@ -23,8 +25,7 @@ module Battle
       aggregator = self.class.aggregators[event.class]
       raise NotImplementedError, "#{self.class} not handle #{event.class}" if aggregator.nil?
 
-      @events ||= []
-      @events << event
+      events << event
       target.instance_exec(event, &aggregator)
     end
   end

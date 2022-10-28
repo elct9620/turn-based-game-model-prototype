@@ -25,9 +25,13 @@ module Battle
       freeze
     end
 
-    def initialize(io)
+    def initialize
       @actors = []
       @finished = false
+    end
+
+    def exit
+      @finished = true
     end
 
     def finished?
