@@ -5,6 +5,8 @@ module Battle
   #
   # @since 0.1.0
   class HealthPoint < Numeric
+    VALID_RANGE = (0..9999)
+
     def initialize(value)
       @value = value.to_i
     end
@@ -18,11 +20,11 @@ module Battle
     end
 
     def +(other)
-      HealthPoint.new(to_i + other.to_i)
+      HealthPoint.new([to_i + other.to_i, VALID_RANGE.max].min)
     end
 
     def -(other)
-      HealthPoint.new(to_i - other.to_i)
+      HealthPoint.new([to_i - other.to_i, VALID_RANGE.min].max)
     end
 
     def *(other)

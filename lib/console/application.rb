@@ -48,7 +48,12 @@ module Console
       context.attack(
         by: 0,
         target: 1,
-        amount: 10
+        amount: rand(0..50)
+      )
+      context.attack(
+        by: 1,
+        target: 0,
+        amount: rand(0..25)
       )
       context.settlement
     end
