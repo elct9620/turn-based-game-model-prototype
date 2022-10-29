@@ -10,14 +10,12 @@ module Battle
     attr_reader :actors
 
     on Events::JoinedEvent do |event|
-      actor = Actor.new(id: event.actor_id, name: event.name, hp: event.hp)
-      @actors << actor
-      actor
+      hp = HealthPoint.new(event.hp)
+      add_actor(id: event.actor_id, name: event.name, hp: hp)
     end
 
     on Events::DamagedEvent do |event|
-      actor = @actors[event.to_id]
-      actor.damaged(event.amount)
+      damage(target_id: event.to_id, amount: event.amount)
     end
 
     on Events::EscapedEvent do |_event|
@@ -31,6 +29,17 @@ module Battle
     def initialize
       @actors = []
       @finished = false
+    end
+
+    def add_actor(**attrs)
+      actor = Actor.new(**attrs)
+      @actors << actor
+      actor
+    end
+
+    def damage(target_id:, amount:)
+      actor = @actors[target_id]
+      actor.damaged(amount)
     end
 
     def exit

@@ -11,7 +11,7 @@ module Battle
       def initialize(actor_id:, name:, hp:)
         @actor_id = actor_id
         @name = name
-        @hp = HealthPoint.new(hp)
+        @hp = hp
       end
     end
   end
