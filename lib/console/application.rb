@@ -23,9 +23,7 @@ module Console
     def join
       CLI::UI::Frame.open('系統') do
         name = CLI::UI.ask('挑戰者，你的名字是？')
-        context = Battle::Contexts::PrepareContext.new(@battle)
-        context.add_actor(id: 0, name: name, hp: 100)
-        context.add_actor(id: 1, name: '哥布林', hp: 100)
+        Commands::JoinCommand.new(name: name).execute(@battle)
       end
     end
 
@@ -41,15 +39,11 @@ module Console
     end
 
     def do_attack
-      context = Battle::Contexts::AttackContext.new(@battle)
-      context.attack(by: 0, target: 1, amount: rand(0..50))
-      context.attack(by: 1, target: 0, amount: rand(0..25))
-      context.settlement
+      Commands::AttackCommand.new.execute(@battle)
     end
 
     def do_escape
-      context = Battle::Contexts::EscapeContext.new(@battle)
-      context.escape_by(actor: 0, rate: Battle::SuccessRate.new(50))
+      Commands::EscapeCommand.new.execute(@battle)
     end
   end
 end
