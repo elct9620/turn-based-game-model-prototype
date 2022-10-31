@@ -6,6 +6,8 @@ Turn-based Game Model Prototype
 
 This is designed for the [BasalticStudio/NewEra](https://github.com/BasalticStudio/new-era) battle system to provide a flexible and replayable implementation.
 
+Demo on Repl.it: https://replit.com/@elct9620/turn-based-game-model-prototype?v=1
+
 ## Concept
 
 * The "battle" is a closed system; others should not change its state.
