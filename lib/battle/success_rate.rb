@@ -4,12 +4,16 @@ module Battle
   class SuccessRate < Numeric
     VALID_RANGE = (0..100).freeze
 
-    def initialize(rate)
+    def initialize(rate, result: nil)
       raise ArgumentError, 'invalid rate' unless VALID_RANGE.include?(rate)
 
       super()
       @rate = rate
-      @successful = rate > rand * 100
+      @successful = if result.nil?
+                      rate > rand * 100
+                    else
+                      result == true
+                    end
     end
 
     def to_i
