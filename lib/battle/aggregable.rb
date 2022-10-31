@@ -15,9 +15,8 @@ module Battle
         @aggregators ||= {}
       end
 
-      def on(event, &block)
-        @aggregators ||= {}
-        @aggregators[event] = block
+      def on(event, &aggregator)
+        aggregators[event] = aggregator
       end
     end
 
