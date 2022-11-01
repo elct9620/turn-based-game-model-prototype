@@ -23,7 +23,7 @@ module Console
     def join
       CLI::UI::Frame.open('系統') do
         name = CLI::UI.ask('挑戰者，你的名字是？')
-        Commands::JoinCommand.new(name: name).execute(@battle)
+        Commands::JoinCommand.new(@battle, name: name).execute
       end
     end
 
@@ -39,11 +39,11 @@ module Console
     end
 
     def do_attack
-      Commands::AttackCommand.new.execute(@battle)
+      Commands::AttackCommand.new(@battle).execute
     end
 
     def do_escape
-      Commands::EscapeCommand.new.execute(@battle)
+      Commands::EscapeCommand.new(@battle).execute
     end
   end
 end
