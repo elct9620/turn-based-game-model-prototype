@@ -18,11 +18,11 @@ module Battle
       damage(target_id: event.to_id, amount: event.amount)
     end
 
-    on Events::EscapedEvent do |_event|
+    on Events::EscapedEvent do
       self.exit
     end
 
-    on Events::DefeatedEvent do |_event|
+    on Events::DefeatedEvent do
       self.exit
     end
 
