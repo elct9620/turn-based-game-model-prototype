@@ -18,13 +18,8 @@ module Battle
       damage(target_id: event.to_id, amount: event.amount)
     end
 
-    on Events::EscapedEvent do
-      self.exit
-    end
-
-    on Events::DefeatedEvent do
-      self.exit
-    end
+    on Events::EscapedEvent, ->(*) { self.exit }
+    on Events::DefeatedEvent, ->(*) { self.exit }
 
     def initialize
       @actors = []
