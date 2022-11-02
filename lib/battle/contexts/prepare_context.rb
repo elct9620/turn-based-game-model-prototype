@@ -8,9 +8,11 @@ module Battle
       end
 
       def add_actor(id:, name:, hp:)
-        @battle.apply Battle::Events::JoinedEvent.new(
+        event = Battle::Events::JoinedEvent.new(
           actor_id: id, name: name, hp: hp
         )
+        Battle::Event.append(battle_id: @battle.id, event: event)
+        @battle.apply event
       end
     end
   end

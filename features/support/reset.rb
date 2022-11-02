@@ -2,4 +2,5 @@
 
 After do
   @battle = nil
+  Battle::Event.reset
 end

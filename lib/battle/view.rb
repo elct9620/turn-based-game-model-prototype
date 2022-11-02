@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'securerandom'
+
 module Battle
   # The aggregate root of battle
   #
@@ -7,7 +9,7 @@ module Battle
   class View
     include Aggregable
 
-    attr_reader :actors
+    attr_reader :id, :actors
 
     on Events::JoinedEvent do |event|
       hp = HealthPoint.new(event.hp)
@@ -21,7 +23,8 @@ module Battle
     on Events::EscapedEvent, ->(*) { self.exit }
     on Events::DefeatedEvent, ->(*) { self.exit }
 
-    def initialize
+    def initialize(id: SecureRandom.uuid)
+      @id = id
       @actors = []
       @finished = false
     end
