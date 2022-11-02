@@ -10,11 +10,12 @@ module Battle
       def escape_by(actor:, rate:)
         return unless rate.successful?
 
-        event = Events::EscapedEvent.new(
-          actor_id: actor
+        Battle::Event.append(
+          battle_id: @battle.id,
+          event: Events::EscapedEvent.new(
+            actor_id: actor
+          )
         )
-        Battle::Event.append(battle_id: @battle.id, event: event)
-        @battle.apply event
       end
     end
   end

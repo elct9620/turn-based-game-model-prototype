@@ -2,6 +2,7 @@
 
 Given('there have a battle') do
   @battle = Battle::View.new
+  Battle::Event.attach(@battle)
 end
 
 Then('I can see {string}') do |message|

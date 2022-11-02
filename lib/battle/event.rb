@@ -11,10 +11,11 @@ module Battle
     class << self
       extend Forwardable
 
-      delegate %i[by_battle append reset] => :instance
+      delegate %i[by_battle append reset attach] => :instance
     end
 
     include Singleton
+    include Publisher
 
     def initialize
       reset
@@ -27,6 +28,7 @@ module Battle
     def append(battle_id:, event:)
       @events[battle_id] ||= []
       @events[battle_id] << event
+      notify(battle_id: battle_id, event: event)
     end
 
     def reset

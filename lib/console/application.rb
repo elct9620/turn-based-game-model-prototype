@@ -5,6 +5,7 @@ module Console
     def initialize
       @battle = Battle::View.new
       @output = Battle::Output.new(@battle)
+      Battle::Event.attach(@battle)
     end
 
     def start
